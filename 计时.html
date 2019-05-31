@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<b id="demo2">00</b>:<b id="demo1">00</b>:<b id="demo">00</b>
+<br>
+<b id="kzj"><button onclick="ks()">开始</button></b>
+<script>
+var shu=0,shu1=0,shu2=0;
+function myFunction() {
+shu++
+s=""+shu+"";
+var cd=s.length;
+if(cd<2){
+document.getElementById("demo").innerHTML = "0"+shu;
+}else{
+document.getElementById("demo").innerHTML = shu;
+}
+if(shu==60){
+shu=0;
+shu1++;
+s1=""+shu1+"";
+var cd1=s1.length;
+document.getElementById("demo").innerHTML = "0"+0;
+if(cd1<2){
+document.getElementById("demo1").innerHTML = "0"+shu1;
+}else{
+document.getElementById("demo1").innerHTML = shu1;
+}
+}
+
+if(shu1==60){
+shu=0;
+shu1=0;
+shu2++;
+s2=""+shu2+"";
+var cd2=s2.length;
+document.getElementById("demo1").innerHTML = "0"+0;
+if(cd2<2){
+document.getElementById("demo2").innerHTML = "0"+shu2;
+}else{
+document.getElementById("demo2").innerHTML = shu2;
+}
+}
+
+if(shu2==24){
+shu2=0;
+document.getElementById("demo2").innerHTML = "0"+0;
+}
+
+}
+
+function ks() {
+c=setInterval(myFunction, 1000);
+document.getElementById("kzj").innerHTML = "<button onclick=\"tz()\">停止</button>";
+}
+function tz() {
+clearInterval(c);
+document.getElementById("kzj").innerHTML = "<button onclick=\"ks()\">开始</button> <button onclick=\"cz()\">重置</button>";
+}
+
+function cz() {
+shu=0;
+shu1=0;
+shu2=0;
+document.getElementById("demo").innerHTML = "0"+0;
+document.getElementById("demo1").innerHTML = "0"+0;
+document.getElementById("demo2").innerHTML = "0"+0;
+}
+</script>
+
+</body>
+</html>
